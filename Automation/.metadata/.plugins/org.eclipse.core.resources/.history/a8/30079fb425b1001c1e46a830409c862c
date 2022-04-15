@@ -1,0 +1,26 @@
+package com.POM;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class OrangeHRM 
+{
+	//Object repository class-Identiification of an Element then performed operation.
+	
+		@FindBy(name="txtUsername")
+		WebElement Username;
+		@FindBy(name="txtPassword")
+		WebElement Password;
+		@FindBy(name="Submit")
+		WebElement LogIn;
+		
+		public void logIn(String Username,String Password )
+		{
+			Username.clear();
+			Username.sendKeys(Username);
+			Password.clear();
+			Password.sendKeys(Password);
+			LogIn.click();
+		}
+			
+}

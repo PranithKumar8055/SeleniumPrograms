@@ -1,0 +1,23 @@
+package com.RadioButtonTest;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.annotations.Test;
+
+public class RadioButtonTest extends TestBase
+{
+	@Test
+	public void radioButtonTest() throws IOException 
+	{
+		FileInputStream File= new FileInputStream("./src/com/ExcelFiles/RadioButton.xlsx");
+		XSSFWorkbook workbook= new XSSFWorkbook(File);
+		XSSFSheet Sheet= workbook.getSheet("Sheet1");
+		
+		
+	}
+
+}

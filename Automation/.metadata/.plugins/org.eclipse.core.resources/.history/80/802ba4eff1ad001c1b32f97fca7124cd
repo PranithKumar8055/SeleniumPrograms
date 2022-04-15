@@ -1,0 +1,5 @@
+package com.TestNGAnnotations;
+
+public class Annotation3 {
+
+}

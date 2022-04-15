@@ -1,0 +1,85 @@
+package com.POM;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+public class OrangeHRMHomePageTesting extends TestBase
+{
+	@Test
+	public void HomePage() throws IOException, InterruptedException
+	{
+		OrangeHRM ohrm=PageFactory.initElements(driver, OrangeHRM.class);
+		
+		FileInputStream File= new FileInputStream("./src/ApplicationTestDataFile/OrangeHRMLogInData.xlsx");
+		XSSFWorkbook workbook= new XSSFWorkbook(File);
+		XSSFSheet Sheet= workbook.getSheet("Sheet1");
+	int RowCnt=	Sheet.getLastRowNum();
+	for(int i=0;i<=RowCnt;i++)
+	{
+	Row R =	Sheet.getRow(i);
+	ohrm.logIn(R.getCell(0).getStringCellValue(),R.getCell(1).getStringCellValue());
+	System.out.println("Username: "+R.getCell(0).getStringCellValue()+" Password: "+R.getCell(1).getStringCellValue());
+	System.out.println(driver.getTitle());
+	System.out.println("");
+	
+	String ExpectedTitle = "OrangeHRM";
+	String ActualTitle = driver.getTitle();
+	
+	
+	if (ActualTitle.contains(ExpectedTitle))
+	{
+		System.out.println("LogIn is Successful");
+		R.createCell(2).setCellValue("LogIn is Successful");
+		
+	}
+	
+	else
+	{
+		System.out.println(" Unsuccessful LogIn");
+		R.createCell(2).setCellValue(" Unsuccessful LogIn");
+		
+	}
+	FileOutputStream File1= new FileOutputStream("./src/ApplicationTestDataFile/OrangeHRMLogInData.xlsx");
+	workbook.write(File1);
+	System.out.println("  ");
+	driver.navigate().back();
+	}
+	
+	ohrm.LinkedIn();
+	System.out.println(driver.getTitle());
+	System.out.println(driver.getCurrentUrl());
+	System.out.println(" ");
+	//driver.navigate().back();
+	Thread.sleep(5000);
+	
+	ohrm.Facebook();
+	System.out.println(driver.getTitle());
+	System.out.println(driver.getCurrentUrl());
+	System.out.println(" ");
+	//driver.navigate().back();
+	Thread.sleep(5000);
+	
+	ohrm.Twitter();
+	System.out.println(driver.getTitle());
+	System.out.println(driver.getCurrentUrl());
+	System.out.println(" ");
+	//driver.navigate().back();
+	Thread.sleep(5000);
+	
+	ohrm.Youtube();
+	System.out.println(driver.getTitle());
+	System.out.println(driver.getCurrentUrl());
+	//driver.navigate().back();
+	
+	}
+	
+
+}

@@ -1,0 +1,16 @@
+package com.StepDefinition;
+
+
+
+
+
+@RunWith(Cucumber.class)
+
+@Cucumber.Options(features = "OrangeHRM")
+		
+		
+public class TestRunner 
+
+{
+
+}

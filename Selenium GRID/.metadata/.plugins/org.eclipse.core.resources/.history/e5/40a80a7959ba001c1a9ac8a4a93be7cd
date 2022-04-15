@@ -1,0 +1,54 @@
+package com.GRID;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class DataProviderGrid 
+{
+	@DataProvider
+	public Object[][] getData()
+	{
+		Object[][] data = new Object[2][3];
+		
+		data[0][0]="tutorial";
+		data[0][1]="tutorial";
+		data[0][2]="chrome";
+		
+		data[1][0]="tutorial";
+		data[1][1]="tutorial";
+		data[1][2]="firefox";
+		
+		return data;
+	}
+
+	@Test(dataProvider="getData")
+	public void LogInTest(String Browser,String Username,String Password ) throws MalformedURLException
+	{
+	System.out.println(Browser);
+	DesiredCapabilities cap= null;
+	if(Browser.equals("firefox"))
+	{
+		cap = DesiredCapabilities.firefox();
+		cap.setBrowserName("firefox");
+		cap.setPlatform(Platform.WINDOWS);
+	}
+	else
+		if(Browser.equals("chrome"))
+		{
+			cap=DesiredCapabilities.chrome();
+			cap.setBrowserName("chrome");
+			cap.setPlatform(Platform.WINDOWS);
+		}
+	
+	RemoteWebDriver driver = new RemoteWebDriver(new URL("http://192.168.0.101:4444/wd/hub"), cap);
+	System.setProperty("webdriver.gecko.driver","./Drivers/geckodriver.exe");
+	System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+	
+	}
+}

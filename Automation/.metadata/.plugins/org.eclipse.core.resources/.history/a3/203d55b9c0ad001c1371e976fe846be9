@@ -1,0 +1,34 @@
+package com.ExcelOperations;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class OrangeHRMEmployeeListExport {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","./Driver Files/chromedriver.exe");
+		ChromeDriver  driver= new ChromeDriver();
+		 String url="https://opensource-demo.orangehrmlive.com/";
+		 driver.get(url);
+		 driver.manage().window().maximize();
+		 driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		 driver.findElement(By.id("txtUsername")).sendKeys("Admin");
+		 driver.findElement(By.id("txtPassword")).sendKeys("admin123");
+		 driver.findElement(By.id("btnLogin")).click();
+		 
+		 driver.findElement(By.xpath("//b[text()='PIM']")).click();
+		 WebElement PIMHeader= driver.findElement(By.xpath("//*[@id='mainMenuFirstLevelUnorderedList']/li[2]/ul"));
+			PIMHeader.findElement(By.linkText("Employee List")).click();
+	 WebElement EmpTable =driver.findElement(By.xpath("//*[@id='frmList_ohrmListComponent']"));
+	List <WebElement> Rows=EmpTable.findElements(By.tagName("tr"));	
+	int RowsCnt=Rows.size();
+	System.out.println("The total number of rows: "+RowsCnt);
+	
+	
+	}
+
+}

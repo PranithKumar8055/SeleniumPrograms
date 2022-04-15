@@ -1,0 +1,10 @@
+2022-04-11 13:29:28 INFO  LogInTest:25 - Browser launched successfully
+ 2022-04-11 13:29:34 INFO  LogInTest:27 - Successfully launched OrangeHRM Application
+ 2022-04-11 13:29:35 INFO  LogInTest:37 - Username entered successfully
+ 2022-04-11 13:29:35 INFO  LogInTest:39 - Password entered successfully
+ 2022-04-11 13:29:40 INFO  LogInTest:41 - Successfully performed click operation on login button
+ 2022-04-11 13:29:40 INFO  LogInTest:44 - The expected loggin text is: Welcome Admin
+ 2022-04-11 13:29:40 INFO  LogInTest:46 - The actual login text is: Welcome Mithali
+ 2022-04-11 13:29:40 INFO  LogInTest:56 - Login Failed: FAIL
+ 2022-04-11 13:29:41 INFO  LogInTest:65 - Successfully closed OrangeHRM App
+ 

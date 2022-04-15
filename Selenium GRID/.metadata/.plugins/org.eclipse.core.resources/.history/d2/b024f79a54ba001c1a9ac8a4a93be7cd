@@ -1,0 +1,11 @@
+package com.GRID;
+
+public class DataProvider 
+{
+	@DataProvider
+	public object[][] get Data()
+	{
+		
+	}
+
+}

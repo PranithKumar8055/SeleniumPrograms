@@ -1,0 +1,28 @@
+package com.POM;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class Phptravels 
+{
+//Object repository class-Identiification of an Element then performed operation.
+	
+	@FindBy(name="Username")
+	WebElement txtUsername;
+	@FindBy(name="Password")
+	WebElement txtPassword;
+	@FindBy(name="LogIn")
+	WebElement Submit;
+	
+	public void logIn(String Username,String Password )
+	{
+		txtUsername.clear();
+		txtUsername.sendKeys(Username);
+		txtPassword.clear();
+		txtPassword.sendKeys(Password);
+		Submit.click();
+		
+		
+	}
+	
+}

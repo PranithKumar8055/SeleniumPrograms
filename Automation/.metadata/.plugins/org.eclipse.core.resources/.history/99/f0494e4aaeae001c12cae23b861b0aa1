@@ -1,0 +1,15 @@
+package com.DataDrivenApproach;
+
+import org.testng.annotations.Test;
+
+public class OrangeHRMLogInTest extends TestBase
+{
+@Test(priority=0)
+public void LogIn()
+{
+	
+
+}
+	
+	
+}

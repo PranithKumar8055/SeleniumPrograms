@@ -1,0 +1,27 @@
+package com.OrangeHRM.LogInTest;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
+
+public class LogIn 
+{
+Logger logger= Logger.getLogger(LogIn.class);
+WebDriver driver= null;
+String url ="https://opensource-demo.orangehrmlive.com";
+
+@BeforeTest
+public void setUp()
+{
+PropertyConfigurator.configure("Log4j.properties");
+System.setProperty("webdriver.chrome.driver","C:\\chromedriver.exe");
+driver= new 	ChromeDriver();
+logger.info("Browser launched successfully");
+driver.get(url);
+logger.info("Successfully launched OrangeHRM Application");
+
+
+}
+}

@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="OrangeHRM Application">
+<test name="On Firefox">
+<parameter name="Browser" value="firefox"/>
+<classes>
+<class name="com.GRID.OrangeHRMLogInTest"/>
+</classes>
+</test>
+<test name ="On Chrome">
+<parameter name = "Browser" value="chrome"/>
+<classes>
+<class name="com.GRID.OrangeHRMLogInTest"/>
+</classes>
+</test>
+</suite>

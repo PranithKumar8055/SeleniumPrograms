@@ -1,0 +1,6 @@
+#name Locator for User Name Element
+UserName = UserName
+#name Locator for Password Element
+Password = password
+#name Locator for SignIn Element
+SignIn=logIn

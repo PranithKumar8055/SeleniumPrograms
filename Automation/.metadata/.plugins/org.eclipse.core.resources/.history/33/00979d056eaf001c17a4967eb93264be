@@ -1,0 +1,9 @@
+package com.RadioButtonTest;
+
+import org.openqa.selenium.WebDriver;
+
+public class TestBase 
+{
+WebDriver driver= null;
+String url="https://www.echoecho.com/htmlforms10.htm";
+}
